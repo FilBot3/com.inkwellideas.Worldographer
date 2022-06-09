@@ -2,6 +2,9 @@
 # https://taskfile.dev
 version: '3'
 
+vars:
+  FLATPAK_NAME: com.inkwellideas.Worldographer
+
 tasks:
   default:
     deps:
@@ -18,4 +21,48 @@ tasks:
       - git submodule init
       - git submodule update
       - flatpak --user install org.freedesktop.Platform//21.08 org.freedesktop.Sdk//21.08 --assumeyes
+
+  build:
+    desc: Build the Flatpak locally
+    deps:
+      - deps
+    cmds:
+      - flatpak-builder test "{{.FLATPAK_NAME}}".yaml --force-clean
+      - flatpak-builder --repo=repo --force-clean test "{{.FLATPAK_NAME}}".yaml
+
+  test-install:
+    desc: Install the Flatpak using the local test repo
+    deps:
+      - build
+    cmds:
+      - flatpak --user remote-add --no-gpg-verify test-repo repo
+      - flatpak --user install test-repo "{{.FLATPAK_NAME}}" --assumeyes
+
+  package:
+    desc: Package the Flatpak artifacts
+    cmds:
+      - flatpak build-bundle repo "{{.FLATPAK_NAME}}".flatpak "{{.FLATPAK_NAME}}"
+
+  install:
+    desc: Install the .flatpak artifacts
+    deps:
+      - package
+    cmds:
+      - flatpak --user install "{{.FLATPAK_NAME}}".flatpak --assumeyes
+
+  run:
+    desc: Run the Flatpak
+    cmds:
+      - flatpak run "{{.FLATPAK_NAME}}"
+
+  uninstall:
+    desc: Uninstall the Flatpak
+    cmds:
+      - flatpak uninstall "{{.FLATPAK_NAME}}" --assumeyes --delete-data
+      - flatpak --user remote-delete test-repo --force
+
+  clean:
+    desc: Cleans up artifacts, directories and other things.
+    cmds:
+      - rm -rf repo tags.lock tags.temp test tags *.flatpak .flatpak-builder
 ...
