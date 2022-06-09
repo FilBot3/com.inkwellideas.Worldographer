@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<component type="desktop">
+  <id>com.inkwellideas.Worldographer</id>
+  <name>Worldographer</name>
+  <summary>To-do list &amp; time tracker for programmers and other digital workers with Jira, Github, and Gitlab integration</summary>
+  <metadata_license>MIT</metadata_license>
+  <url type="homepage">https://worldographer.com/</url>
+  <provides>
+    <id>com.inkwellideas.Worldographer</id>
+  </provides>
+  <description>
+    <h1>Worldographer!</h1>
+    <p>Build Worlds, Kingdoms, Cities, and Dungeons.</p>
+  </description>
+  <releases>
+    <release version="6.5.0" date="2021-03-05"/>
+  </releases>
+</component>
