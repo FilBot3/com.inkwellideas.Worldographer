@@ -14,6 +14,7 @@ finish-args:
   - '--device=all'
   - '--filesystem=xdg-download'
   - '--filesystem=xdg-run/keyring'
+  - '--filesystem=home'
   - '--talk-name=org.freedesktop.Notifications'
   - '--talk-name=org.freedesktop.portal.Fcitx'
   - '--talk-name=org.kde.StatusNotifierWatcher'
