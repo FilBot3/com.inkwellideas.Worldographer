@@ -3,6 +3,10 @@
 *.zip
 *.rpm
 *.exe
+*.flatpak
+test/*
+.flatpak-builder/*
+repo/*
 
 # Swap
 [._]*.s[a-v][a-z]

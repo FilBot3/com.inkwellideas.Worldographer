@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Name=Worldographer
+GenericName=Worldographer
+Comment=World building toolkit
+Exec=/app/bin/Worldographer
+Icon=com.inkwellideas.Worldographer
+Terminal=false
+Type=Application
+Categories=Game;X-Internet;
+Keywords=web;game;internet;

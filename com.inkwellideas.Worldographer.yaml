@@ -25,6 +25,8 @@ modules:
       - type: file
         path: com.inkwellideas.Worldographer.appdata.xml
       - type: file
+        path: com.inkwellideas.Worldographer.desktop
+      - type: file
         only-arches:
           - x86_64
         path: worldographer_1.51-1_amd64.deb
@@ -33,7 +35,7 @@ modules:
       - tar xfv data.tar.xz
       - cp -r opt/worldographer/* /app
       - install -m 644 -D com.inkwellideas.Worldographer.appdata.xml /app/share/appdata/com.inkwellideas.Worldographer.appdata.xml
-      - install -m 644 -D /app/lib/worldographer-Worldographer.desktop /app/share/applications/com.inkwellideas.Worldographer.desktop
+      - install -m 644 -D com.inkwellideas.Worldographer.desktop /app/share/applications/com.inkwellideas.Worldographer.desktop
       - install -m 644 -D /app/lib/Worldographer.png /app/share/icons/hicolor/512x512/apps/com.inkwellideas.Worldographer.png
       - rm worldographer_*.deb control.tar.xz debian-binary data.tar.xz com.inkwellideas.Worldographer.appdata.xml
 ...

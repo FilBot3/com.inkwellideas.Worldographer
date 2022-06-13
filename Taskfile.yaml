@@ -3,6 +3,7 @@
 version: '3'
 
 vars:
+  FLATHUB_REPO: flathub-user
   FLATPAK_NAME: com.inkwellideas.Worldographer
 
 tasks:
@@ -20,14 +21,14 @@ tasks:
     cmds:
       - git submodule init
       - git submodule update
-      - flatpak --user install org.freedesktop.Platform//21.08 org.freedesktop.Sdk//21.08 --assumeyes
+      - flatpak --user install {{.FLATHUB_REPO}} org.freedesktop.Platform//21.08 org.freedesktop.Sdk//21.08 --assumeyes
 
   build:
     desc: Build the Flatpak locally
     deps:
       - deps
     cmds:
-      - flatpak-builder test "{{.FLATPAK_NAME}}".yaml --force-clean
+      - flatpak-builder test "{{.FLATPAK_NAME}}.yaml" --force-clean
       - flatpak-builder --repo=repo --force-clean test "{{.FLATPAK_NAME}}".yaml
 
   test-install:
@@ -41,14 +42,14 @@ tasks:
   package:
     desc: Package the Flatpak artifacts
     cmds:
-      - flatpak build-bundle repo "{{.FLATPAK_NAME}}".flatpak "{{.FLATPAK_NAME}}"
+      - flatpak build-bundle repo "{{.FLATPAK_NAME}}.flatpak" "{{.FLATPAK_NAME}}"
 
   install:
     desc: Install the .flatpak artifacts
     deps:
       - package
     cmds:
-      - flatpak --user install "{{.FLATPAK_NAME}}".flatpak --assumeyes
+      - flatpak --user install "{{.FLATPAK_NAME}}.flatpak" --assumeyes
 
   run:
     desc: Run the Flatpak
