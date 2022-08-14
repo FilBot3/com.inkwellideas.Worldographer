@@ -31,7 +31,7 @@ modules:
         only-arches:
           - x86_64
         url: https://worldographer.com/releases/worldographer-amd64-deb.zip
-        sha256: b243833cf9621cab27f2c3dfb36ac9771dab80d6c10d65d471663858c445154e
+        sha256: ab903e4af40e6e0529ef24a790c2414e90df8cbec32f5b685b34eea356ceb9f6
     build-commands:
       - unzip worldographer-amd64-deb.zip
       - ar x worldographer_*.deb

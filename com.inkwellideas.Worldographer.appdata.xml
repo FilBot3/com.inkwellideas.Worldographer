@@ -2,17 +2,17 @@
 <component type="desktop">
   <id>com.inkwellideas.Worldographer</id>
   <name>Worldographer</name>
-  <summary>To-do list &amp; time tracker for programmers and other digital workers with Jira, Github, and Gitlab integration</summary>
-  <metadata_license>MIT</metadata_license>
+  <summary>RPG Map Software written in Java.</summary>
+  <metadata_license>Proprietary</metadata_license>
   <url type="homepage">https://worldographer.com/</url>
   <provides>
     <id>com.inkwellideas.Worldographer</id>
   </provides>
   <description>
-    <p>Worldographer!</p>
+    <p>Worldographer! RPG Map Software written in Java.</p>
     <p>Build Worlds, Kingdoms, Cities, and Dungeons.</p>
   </description>
   <releases>
-    <release version="6.5.0" date="2021-03-05"/>
+    <release version="1.56.0" date="2022-08-14"/>
   </releases>
 </component>
