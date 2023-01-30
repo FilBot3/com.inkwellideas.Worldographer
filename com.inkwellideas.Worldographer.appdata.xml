@@ -13,6 +13,7 @@
     <p>Build Worlds, Kingdoms, Cities, and Dungeons.</p>
   </description>
   <releases>
+    <release version="1.59.0" date="2023-01-30"/>
     <release version="1.56.0" date="2022-08-14"/>
   </releases>
 </component>
